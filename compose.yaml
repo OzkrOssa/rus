@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rus:
+    networks:
+      - mongodb_default
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: rus
+    restart: always
+    environment:
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASS: ${MONGO_USER}
+      MONGO_HOST: ${MONGO_USER}
+      MIKROTIK_API_USER: ${MIKROTIK_API_USER}
+      MIKROTIK_API_PASS: ${MIKROTIK_API_PASS}
+      SAEPLUS_TOKEN_HEADER: ${SAEPLUS_TOKEN_HEADER}
+      SAEPLUS_TOKEN: ${SAEPLUS_TOKEN}
+      SAEPLUS_API_HEADER: ${SAEPLUS_API_HEADER}
+      SAEPLUS_API_CONNECT: ${SAEPLUS_API_CONNECT}
+
+networks:
+  mongodb_default:
+    external: true
